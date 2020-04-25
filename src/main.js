@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
-import './css/a.css'
-import './css/b.css'
 
-class TodoList extends Component {
-    constructor(props) {
-        super(props)
-    }
-    render() {
-        return <div className="container">
-            hello react
-        </div>
-    }
-}
+import {createStore} from 'redux'
+import  {Provider} from 'react-redux'
+import {todos} from './reducer/index'
+import TodoList from './todolist'
+const store = createStore(todos)
 
-ReactDOM.render(<TodoList />, document.getElementById('root'))
+
+
+let ReTodolist = (<Provider store={store}>
+    <TodoList />
+</Provider>)
+
+ReactDOM.render(ReTodolist, document.getElementById('root'))
