@@ -14,6 +14,9 @@ export  function todos(state = [],action) {
                 }
                 return todo
             })
+        case 'async':
+            console.log('waiting seconds')
+            return state
         default:
             return state
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { todoActionCreate } from './actions/index'
+import { todoActionCreate ,asyncAdd} from './actions/index'
 import './css/list.css'
 
 import { connect } from 'react-redux'
@@ -44,9 +44,15 @@ class TodoList extends Component {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
+        // add: (inpVal) => {
+        //     let data = {content:inpVal,id:+new Date(),done:false}
+           
+        //         dispatch(todoActionCreate('add', data))
+           
+            
+        // },
         add: (inpVal) => {
-            let data = {content:inpVal,id:+new Date(),done:false}
-            dispatch(todoActionCreate('add', data))
+           dispatch(asyncAdd(inpVal)) 
         },
         del: (id) => {
             dispatch(todoActionCreate('del', id))
